@@ -12,6 +12,8 @@ const oktaConfig = {
   client_id: process.env.REACT_APP_OKTA_CLIENT_ID,
 };
 
+console.log("OKTA", oktaConfig)
+
 ReactDOM.render(
   <BrowserRouter>
     <Security {...oktaConfig}>
