@@ -36,7 +36,7 @@ const PostEditor = ({ classes, post, onSave, hostory }) => (
     {({ handleSubmit }) => (
       <Modal
         className={classes.modal}
-        onClose={() => history.goBack()}
+        onClose={() => window.history.goBack()}
         open
       >
         <Card className={classes.modalCard}>
@@ -59,7 +59,7 @@ const PostEditor = ({ classes, post, onSave, hostory }) => (
             </CardContent>
             <CardActions>
               <Button size="small" color="primary" type="submit">Save</Button>
-              <Button size="small" onClick={() => history.goBack()}>Cancel</Button>
+              <Button size="small" onClick={() => window.history.goBack()}>Cancel</Button>
             </CardActions>
           </form>
         </Card>

@@ -100,11 +100,11 @@ class PostsManager extends Component {
 
   render() {
     const { classes } = this.props;
-
+    console.log("XXXX", this.state.posts.length)
     return (
       <Fragment>
         <Typography variant="h4">Posts Manager</Typography>
-        {this.state.post.length > 0 ? (
+        {this.state.posts.length > 0 ? (
           <Paper elevation={1} className={classes.posts}>
             <List>
               {orderBy(this.state.posts, ['updatedAt', 'title'], ['desc', 'asc']).map(post => (
