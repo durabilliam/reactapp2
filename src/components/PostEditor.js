@@ -31,12 +31,12 @@ const styles = theme => ({
   },
 });
 
-const PostEditor = ({ classes, post, onSave, hostory }) => (
+const PostEditor = ({ classes, post, onSave, history }) => (
   <Form initialValues={post} onSubmit={onSave}>
     {({ handleSubmit }) => (
       <Modal
         className={classes.modal}
-        onClose={() => window.history.goBack()}
+        onClose={() => history.goBack()}
         open
       >
         <Card className={classes.modalCard}>
@@ -59,7 +59,7 @@ const PostEditor = ({ classes, post, onSave, hostory }) => (
             </CardContent>
             <CardActions>
               <Button size="small" color="primary" type="submit">Save</Button>
-              <Button size="small" onClick={() => window.history.goBack()}>Cancel</Button>
+              <Button size="small" onClick={() => history.goBack()}>Cancel</Button>
             </CardActions>
           </form>
         </Card>

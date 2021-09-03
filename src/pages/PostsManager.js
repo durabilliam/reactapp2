@@ -12,7 +12,7 @@ import {
   ListItemText,
   ListItemSecondaryAction,
 } from '@material-ui/core';
-import { Delete as DeleteIcon, Add as AddIcon, CallMissedSharp } from '@material-ui/icons';
+import { Delete as DeleteIcon, Add as AddIcon } from '@material-ui/icons';
 import moment from 'moment';
 import { find, orderBy } from 'lodash';
 import { compose } from 'recompose';
@@ -71,11 +71,11 @@ class PostsManager extends Component {
     this.setState({ loading: false, posts: (await this.fetch('get', '/posts')) || [] });
   }
 
-  savePosts = async (post) => {
+  savePost = async (post) => {
     if (post.id) {
       await this.fetch('put', `/posts/${post.id}`, post);
     } else {
-      await this.fetch('post', `/posts`, post);
+      await this.fetch('post', '/posts', post);
     }
 
     this.props.history.goBack();
@@ -100,7 +100,7 @@ class PostsManager extends Component {
 
   render() {
     const { classes } = this.props;
-    console.log("XXXX", this.state.posts.length)
+
     return (
       <Fragment>
         <Typography variant="h4">Posts Manager</Typography>
@@ -123,7 +123,7 @@ class PostsManager extends Component {
             </List>
           </Paper>
         ) : (
-          !this.state.loading && <Typography variant="subtitle1">No Posts to Display</Typography>
+          !this.state.loading && <Typography variant="subtitle1">No posts to display</Typography>
         )}
         <Fab
           color="secondary"
